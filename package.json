@@ -25,5 +25,8 @@
     "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
     "gulp-closure-compiler": "~0.1.2"
+  },
+  "dependencies": {
+    "q": "~1.0.0"
   }
 }
