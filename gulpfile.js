@@ -1,6 +1,12 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var browserify = require('gulp-browserify');
+var closureCompiler = require('gulp-closure-compiler');
 
 gulp.task('default', function(){
-  // place code for your default task here
+  gulp.src('src/ajxr.js')
+    .pipe(browserify({
+      standalone: 'ajxr'
+    }))
+    .pipe(gulp.dest('./build'));
 });
