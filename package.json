@@ -4,7 +4,7 @@
   "description": "A non sucky ajax request library",
   "main": "ajxr.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "./node_modules/.bin/mocha test"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
   "devDependencies": {
     "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
-    "gulp-closure-compiler": "~0.1.2"
+    "gulp-closure-compiler": "~0.1.2",
+    "mocha": "~1.17.1",
+    "should": "~3.1.2"
   },
   "dependencies": {
     "q": "~1.0.0"
