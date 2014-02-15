@@ -26,7 +26,9 @@
     "gulp": "~3.5.2",
     "gulp-closure-compiler": "~0.1.2",
     "mocha": "~1.17.1",
-    "should": "~3.1.2"
+    "should": "~3.1.2",
+    "mocha-phantomjs": "~3.3.2",
+    "phantomjs": "~1.9.7-1"
   },
   "dependencies": {
     "q": "~1.0.0"
