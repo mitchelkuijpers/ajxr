@@ -4,7 +4,7 @@
   "description": "A non sucky ajax request library",
   "main": "ajxr.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test"
+    "test": "./node_modules/.bin/mocha-phantomjs index.html"
   },
   "repository": {
     "type": "git",
