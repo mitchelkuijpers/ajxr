@@ -6,16 +6,21 @@ var request = function(method, url, payload) {
   var request = new XMLHttpRequest();
   request.open(method, url, true);
   request.onload = onload;
+  request.onerror = onerror;
   request.send(JSON.stringify(payload));
 
   function onload() {
-    if (request.status === 200) {
+    if ((request.status / 100 | 0) === 2) {
       var response = JSON.parse(request.responseText);
 
       dfd.resolve(response);
     } else {
-      dfd.reject(new Error("Status code was " + request.status));
+      dfd.reject(new Error('Status code was ' + request.status));
     }
+  }
+
+  function onerror() {
+    dfd.reject(new Error('An error occured'));
   }
 
   return dfd.promise;
@@ -27,14 +32,14 @@ module.exports  = {
   },
 
   post: function(url, payload) {
-    request('POST', url, payload);
+    return request('POST', url, payload);
   },
 
   put: function(url, payload) {
-    request('PUT', url, payload);
+    return request('PUT', url, payload);
   },
 
   delete: function(url, payload) {
-    request('DELETE', url);
+    return request('DELETE', url);
   }
 };

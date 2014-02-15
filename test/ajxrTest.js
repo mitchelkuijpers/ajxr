@@ -9,29 +9,51 @@ if (navigator.userAgent.indexOf('PhantomJS') !== -1){
     this.total = params.total || 0;
   };
 }
+ 
+beforeEach(function(){
+  this.xhr = sinon.useFakeXMLHttpRequest();
+  var requests = this.requests = [];
+
+  this.xhr.onCreate = function (xhr) {
+    requests.push(xhr);
+  };
+});
+
+afterEach(function(){
+  this.xhr.restore();
+})
 
 describe('Get', function(){
-  before(function(){
-    this.xhr = sinon.useFakeXMLHttpRequest();
-    var requests = this.requests = [];
-
-    this.xhr.onCreate = function (xhr) {
-      requests.push(xhr);
-    };
-  });
-
-  after(function(){
-    this.xhr.restore();
-  })
-
-  it('should work do an AJAX request', function(done){
+  it('should do an AJAX request', function(done){
     ajxr.get('/users').then(function(response){
       response.should.have.lengthOf(1);
       response[0].should.have.property('username', 'tomtheun');
 
       done();
-    });
+    }).done();
 
-    this.requests[0].respond(200, { "Content-Type": "application/json" }, '[{ "username": "tomtheun"}]');
+    this.requests[0].respond(200, {}, '[{ "username": "tomtheun"}]');
+  });
+
+  it('should reject promise when AJAX request returns a 404', function(done){
+    ajxr.get('/users/non-existing-user').fail(function(response){
+      response.should.have.property('message', 'Status code was 404');
+      
+      done();
+    }).done();
+
+    this.requests[0].respond(404);
+  })
+});
+
+describe('Post', function(){
+  it('should do an AJAX request', function(done){
+    ajxr.post('/users', {'username': 'tomtheun'}).then(function(response){
+      response.should.have.property('username', 'tomtheun');
+
+      done();
+    }).done();
+
+    this.requests[0].respond(201, {}, '{ "username": "tomtheun"}');
   });
 });
