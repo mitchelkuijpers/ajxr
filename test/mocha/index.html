@@ -8,11 +8,12 @@
   </head>
   <body>
     <div id="mocha"></div>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
     <script src="mocha.js"></script>
-    <script src="node_modules/should/should.js"></script>
+    <script src="../../node_modules/should/should.js"></script>
     <script>mocha.setup('bdd')</script>
-    <script src="src/ajxr.js"></script>
-    <script src="test/ajxrTest.js"></script>
+    <script src="../../build/ajxr.js"></script>
+    <script src="../ajxrTest.js"></script>
     <script>
       if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
       else { mocha.run(); }

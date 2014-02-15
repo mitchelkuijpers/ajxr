@@ -6,8 +6,8 @@ var closureCompiler = require('gulp-closure-compiler');
 gulp.task('default', function(){
   gulp.src('src/ajxr.js')
     .pipe(browserify({
-      standalone: 'ajxr',
-      exclude: 'q'
+      standalone: 'ajxr'
+      // exclude: 'q'
     }))
     .pipe(gulp.dest('./build'));
 });

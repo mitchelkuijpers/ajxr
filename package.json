@@ -4,7 +4,7 @@
   "description": "A non sucky ajax request library",
   "main": "ajxr.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs index.html"
+    "test": "./node_modules/.bin/gulp; ./node_modules/.bin/mocha-phantomjs test/mocha/index.html"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,7 @@
     "should": "~3.1.2",
     "mocha-phantomjs": "~3.3.2",
     "phantomjs": "~1.9.7-1",
-    "gulp-browserify": "~0.4.4"
-  },
-  "dependencies": {
-    "q": "~1.0.0"
+    "gulp-browserify": "~0.4.4",
+    "sinon": "~1.8.2"
   }
 }
