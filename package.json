@@ -1,0 +1,29 @@
+{
+  "name": "ajxr",
+  "version": "0.0.0",
+  "description": "A non sucky ajax request library",
+  "main": "ajxr.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mitchelkuijpers/ajxr.git"
+  },
+  "keywords": [
+    "ajax",
+    "ajxr",
+    "request"
+  ],
+  "author": "Mitchel Kuijpers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mitchelkuijpers/ajxr/issues"
+  },
+  "homepage": "https://github.com/mitchelkuijpers/ajxr",
+  "devDependencies": {
+    "gulp-util": "~2.2.14",
+    "gulp": "~3.5.2",
+    "gulp-closure-compiler": "~0.1.2"
+  }
+}
