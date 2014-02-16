@@ -31,5 +31,8 @@
     "phantomjs": "~1.9.7-1",
     "gulp-browserify": "~0.4.4",
     "sinon": "~1.8.2"
+  },
+  "dependencies": {
+    "q": "~1.0.0"
   }
 }
